@@ -1,0 +1,112 @@
+/* ─── General ─────────────────────────── */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* ─── Navbar ───────────────────────────── */
+.navbar {
+    background-color: #2c3e50 !important;
+}
+.navbar-brand,
+.nav-link {
+    color: #ecf0f1 !important;
+}
+.nav-link:hover {
+    color: #3498db !important;
+}
+
+/* ─── Cards ────────────────────────────── */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* ─── Buttons ──────────────────────────── */
+.btn-primary {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+.btn-primary:hover {
+    background-color: #1a6fa0;
+    border-color: #1a6fa0;
+}
+
+/* ─── Profile Image ────────────────────── */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #2980b9;
+}
+
+/* ─── Book Card ────────────────────────── */
+.book-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.book-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+/* ─── Search Section ───────────────────── */
+.search-section {
+    background-color: #2c3e50;
+    padding: 40px 0;
+    color: white;
+}
+
+/* ─── Footer ───────────────────────────── */
+footer {
+    margin-top: 50px;
+}
+
+.navbar,
+footer {
+    background-color: #2c3e50 !important;
+    color: #ecf0f1;
+  }
+
+
+/* Header & Footer same color */
+.navbar,
+footer {
+    background-color: #2c3e50 !important;
+    color: #ecf0f1;
+}
+
+/* Footer text alignment */
+footer {
+    padding: 15px 0;
+    text-align: center;
+}
+
+
+
+
+
+
+/* ─── Badge ────────────────────────────── */
+.badge-available {
+    background-color: #27ae60;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+.badge-unavailable {
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+

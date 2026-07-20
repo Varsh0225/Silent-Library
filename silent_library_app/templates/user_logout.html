@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>🚪 You have been logged out</h2>
+    <p>Thank you for using Silent Library.</p>
+
+    <a href="{% url 'login' %}" class="btn btn-primary">Login Again</a>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% extends 'base.html' %}
+{% block title %}Logged Out - Silent Library{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="logout-card">
+
+        <div class="logout-icon">📚</div>
+        <h1>You've Been Logged Out</h1>
+        <p>Thank you for visiting <strong>Silent Library</strong>.<br>Your session has been safely ended.</p>
+
+        <div class="logout-actions">
+            <a href="{% url 'user_login' %}" class="btn btn-primary">🔐 Log Back In</a>
+            <a href="{% url 'home' %}" class="btn btn-secondary">🏠 Go to  Dashboard</a>
+        </div>
+
+        <div class="logout-divider"></div>
+
+        <p class="logout-quote">
+            "A reader lives a thousand lives before he dies." <br/>
+            <span>— George R.R. Martin</span>
+        </p>
+
+    </div>
+</div>
+{% endblock %} -->

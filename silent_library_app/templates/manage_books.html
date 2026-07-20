@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card p-4">
+            <h2>📚 Manage Library Books</h2>
+            <p class="text-muted mb-0">Add, edit and delete books available in the Silent Library system.</p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+
+    <div>
+        <a href="{% url 'add_book' %}" class="btn btn-success">+ Add New Book</a>
+        <a href="{% url 'staff_dashboard' %}" class="btn btn-secondary">← Back to Dashboard</a>
+    </div>
+
+    <form method="GET" action="{% url 'manage_books' %}" class="d-flex mt-2 mt-md-0">
+        <input type="text" name="q" value="{{ query }}" class="form-control me-2"
+               placeholder="Search by title, author, genre, ISBN">
+        <button type="submit" class="btn btn-primary">🔍 Search</button>
+    </form>
+
+</div>
+
+<div class="row g-4">
+    {% for book in books %}
+    <div class="col-md-4">
+        <div class="card p-3 h-100 text-center">
+
+            {% if book.cover_image %}
+                <img src="{{ book.cover_image.url }}" class="img-fluid rounded mb-3" style="height:250px; object-fit:cover;">
+            {% else %}
+                <div class="border rounded p-5 mb-3 bg-light">No Image</div>
+            {% endif %}
+
+            <h4>{{ book.title }}</h4>
+            <p class="mb-1"><strong>Author:</strong> {{ book.author }}</p>
+            <p class="mb-1"><strong>Genre:</strong> {{ book.get_genre_display }}</p>
+            <p class="mb-3"><strong>ISBN:</strong> {{ book.isbn }}</p>
+
+            <a href="{% url 'edit_book' book.id %}" class="btn btn-primary mb-2">✏ Edit</a>
+            <a href="{% url 'delete_book' book.id %}" class="btn btn-danger">🗑 Delete</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">No books found in library.</div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

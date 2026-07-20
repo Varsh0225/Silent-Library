@@ -1,0 +1,27 @@
+# JavaScript dependencies and build output
+node_modules/
+dist/
+build/
+
+# Environment and local secrets
+.env
+.env.local
+
+# Python and Django local files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+db.sqlite3
+error.log
+media/
+staticfiles/
+
+# Editor and operating-system files
+.DS_Store
+.vscode/
+.idea/
+
+# Package-manager logs
+npm-debug.log*
+yarn-error.log*

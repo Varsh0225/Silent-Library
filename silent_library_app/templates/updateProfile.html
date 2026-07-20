@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card p-4 mt-3">
+
+            <h3 class="mb-4">✏️ Update Profile</h3>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">First Name</label>
+                        <input type="text"
+                               name="first_name"
+                               class="form-control"
+                               value="{{ user.first_name }}"
+                               placeholder="Enter first name"
+                               required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Last Name</label>
+                        <input type="text"
+                               name="last_name"
+                               class="form-control"
+                               value="{{ user.last_name }}"
+                               placeholder="Enter last name"
+                               required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Username</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{ user.username }}"
+                           disabled>
+                    <small class="text-muted">Username cannot be changed.</small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Email Address</label>
+                    <input type="email"
+                           name="email"
+                           class="form-control"
+                           value="{{ user.email }}"
+                           placeholder="Enter email address"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Bio</label>
+                    <textarea name="bio"
+                              class="form-control"
+                              rows="3"
+                              placeholder="Tell us something about yourself...">{{ profile.bio|default:'' }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">
+                        Profile Picture
+                        <span class="text-muted">(optional)</span>
+                    </label>
+                    {% if profile.profile_pic %}
+                        <div class="mb-2">
+                            <p class="text-muted mb-1">Current Picture:</p>
+                            <img src="{{ profile.profile_pic.url }}"
+                                 alt="Current Profile Picture"
+                                 class="profile-img">
+                        </div>
+                    {% else %}
+                        <div class="mb-2">
+                            <p class="text-muted mb-1">Current Picture:</p>
+                            <img src="https://via.placeholder.com/120?text=No+Photo"
+                                 alt="No Photo"
+                                 class="profile-img">
+                        </div>
+                    {% endif %}
+                    <input type="file"
+                           name="profile_pic"
+                           class="form-control mt-2"
+                           accept="image/*">
+                    <small class="text-muted">Upload new picture to replace current one.</small>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        💾 Save Changes
+                    </button>
+                    <a href="{% url 'user_profile' %}" class="btn btn-secondary">
+                        ❌ Cancel
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
